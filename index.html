@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EduFlow AI</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar">
+
+<div>
+
+<div class="logo">
+
+<i class="fa-solid fa-graduation-cap"></i>
+
+<h2>EduFlow AI</h2>
+
+<p>Smart Timetable Manager</p>
+
+</div>
+
+<ul class="menu">
+
+<li class="active" data-page="dashboard">
+
+<i class="fa-solid fa-house"></i>
+
+<span>Dashboard</span>
+
+</li>
+
+<li data-page="teachers">
+
+<i class="fa-solid fa-chalkboard-user"></i>
+
+<span>Teachers</span>
+
+</li>
+
+<li data-page="subjects">
+
+<i class="fa-solid fa-book"></i>
+
+<span>Subjects</span>
+
+</li>
+
+<li data-page="classes">
+
+<i class="fa-solid fa-school"></i>
+
+<span>Classes</span>
+
+</li>
+
+<li data-page="rooms">
+
+<i class="fa-solid fa-door-open"></i>
+
+<span>Rooms</span>
+
+</li>
+
+<li data-page="timetable">
+
+<i class="fa-solid fa-calendar-days"></i>
+
+<span>Timetable</span>
+
+</li>
+
+<li data-page="settings">
+
+<i class="fa-solid fa-gear"></i>
+
+<span>Settings</span>
+
+</li>
+
+</ul>
+
+</div>
+
+<div>
+
+<button class="create-btn">
+
+<i class="fa-solid fa-plus"></i>
+
+Create Timetable
+
+</button>
+
+<div class="admin">
+
+<i class="fa-solid fa-circle-user"></i>
+
+<div>
+
+<h4>Administrator</h4>
+
+<p>EduFlow AI</p>
+
+</div>
+
+</div>
+
+</div>
+
+</aside>
+
+<!-- ================= MAIN ================= -->
+
+<main class="main">
+
+<div class="topbar">
+
+<div>
+
+<h1 id="pageTitle">Dashboard</h1>
+
+<p>Welcome Back 👋</p>
+
+</div>
+
+<div class="top-right">
+
+<input
+type="text"
+placeholder="Search...">
+
+<button class="notify">
+
+<i class="fa-solid fa-bell"></i>
+
+</button>
+
+</div>
+
+</div>
+
+<!-- ================= DASHBOARD ================= -->
+
+<section id="dashboard" class="page active-page">
+
+<div class="cards">
+
+<div class="card">
+
+<div class="card-icon blue">
+
+<i class="fa-solid fa-chalkboard-user"></i>
+
+</div>
+
+<div>
+
+<h4>Teachers</h4>
+
+<h2 id="teacherCount">0</h2>
+
+<p>Total Teachers</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="card-icon green">
+
+<i class="fa-solid fa-book"></i>
+
+</div>
+
+<div>
+
+<h4>Subjects</h4>
+
+<h2 id="subjectCount">0</h2>
+
+<p>Total Subjects</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="card-icon purple">
+
+<i class="fa-solid fa-school"></i>
+
+</div>
+
+<div>
+
+<h4>Classes</h4>
+
+<h2 id="classCount">0</h2>
+
+<p>Total Classes</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="card-icon orange">
+
+<i class="fa-solid fa-calendar-days"></i>
+
+</div>
+
+<div>
+
+<h4>Timetables</h4>
+
+<h2 id="timetableCount">0</h2>
+
+<p>Generated</p>
+
+</div>
+
+</div>
+
+</div>
+<!-- ================= RECENT TIMETABLES ================= -->
+
+<div class="dashboard-grid">
+
+    <div class="table-card">
+
+        <div class="section-header">
+
+            <h2>Recent Timetables</h2>
+
+            <button>View All</button>
+
+        </div>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Class</th>
+                    <th>Teacher</th>
+                    <th>Room</th>
+                    <th>Status</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="recentTable">
+
+                <tr>
+
+                    <td colspan="4" style="text-align:center;padding:30px;">
+                        No timetable created yet.
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <!-- Quick Actions -->
+
+    <div class="quick-panel">
+
+        <h2>Quick Actions</h2>
+
+        <button class="action-btn" data-page="teachers">
+            <i class="fa-solid fa-user-plus"></i>
+            Add Teacher
+        </button>
+
+        <button class="action-btn" data-page="subjects">
+            <i class="fa-solid fa-book"></i>
+            Add Subject
+        </button>
+
+        <button class="action-btn" data-page="classes">
+            <i class="fa-solid fa-school"></i>
+            Add Class
+        </button>
+
+        <button class="action-btn" data-page="rooms">
+            <i class="fa-solid fa-door-open"></i>
+            Add Room
+        </button>
+
+        <button class="action-btn" data-page="timetable">
+            <i class="fa-solid fa-calendar-plus"></i>
+            Generate Timetable
+        </button>
+
+    </div>
+
+</div>
+
+<!-- ================= BOTTOM ================= -->
+
+<div class="bottom-grid">
+
+<div class="activity-card">
+
+<h2>Latest Activity</h2>
+
+<ul id="activityList">
+
+<li>No activity yet.</li>
+
+</ul>
+
+</div>
+
+<div class="status-card">
+
+<h2>System Status</h2>
+
+<p>Teachers : <span id="statusTeachers">0</span></p>
+
+<p>Subjects : <span id="statusSubjects">0</span></p>
+
+<p>Classes : <span id="statusClasses">0</span></p>
+
+<p>Rooms : <span id="statusRooms">0</span></p>
+
+<p>Timetables : <span id="statusTables">0</span></p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= TEACHERS ================= -->
+
+<section id="teachers" class="page">
+
+<h2>Teachers</h2>
+
+<div class="form-card">
+
+<input
+type="text"
+id="teacherName"
+placeholder="Teacher Name">
+
+<input
+type="text"
+id="teacherSubject"
+placeholder="Subject">
+
+<button id="addTeacher">
+
+Add Teacher
+
+</button>
+
+</div>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Name</th>
+
+<th>Subject</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="teacherTable">
+
+<tr>
+
+<td colspan="3" style="text-align:center">
+
+No teachers added.
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</section>
+
+<!-- ================= SUBJECTS ================= -->
+
+<section id="subjects" class="page">
+
+<h2>Subjects</h2>
+
+<div class="form-card">
+
+<input
+type="text"
+id="subjectName"
+placeholder="Subject Name">
+
+<button id="addSubject">
+
+Add Subject
+
+</button>
+
+</div>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Subject</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="subjectTable">
+
+<tr>
+
+<td colspan="2" style="text-align:center">
+
+No subjects added.
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</section>`
+<!-- ================= CLASSES ================= -->
+
+<section id="classes" class="page">
+
+    <h2>Classes</h2>
+
+    <div class="form-card">
+
+        <input
+        type="text"
+        id="className"
+        placeholder="Class (Example: 9-A)">
+
+        <button id="addClass">
+
+            Add Class
+
+        </button>
+
+    </div>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Class</th>
+
+                <th>Action</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="classTable">
+
+            <tr>
+
+                <td colspan="2" style="text-align:center">
+
+                    No classes added.
+
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</section>
+
+<!-- ================= ROOMS ================= -->
+
+<section id="rooms" class="page">
+
+    <h2>Rooms</h2>
+
+    <div class="form-card">
+
+        <input
+        type="text"
+        id="roomName"
+        placeholder="Room Number">
+
+        <button id="addRoom">
+
+            Add Room
+
+        </button>
+
+    </div>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Room</th>
+
+                <th>Action</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="roomTable">
+
+            <tr>
+
+                <td colspan="2" style="text-align:center">
+
+                    No rooms added.
+
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</section>
+
+<!-- ================= TIMETABLE ================= -->
+
+<section id="timetable" class="page">
+
+    <h2>Timetable</h2>
+
+    <div class="table-card">
+
+        <h3>No timetable generated yet.</h3>
+
+        <p>
+
+            Add teachers, subjects, classes and rooms first.
+
+        </p>
+
+        <button class="create-btn">
+
+            Generate Timetable
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ================= SETTINGS ================= -->
+
+<section id="settings" class="page">
+
+    <h2>Settings</h2>
+
+    <div class="table-card">
+
+        <p>
+
+            More settings will be available in Version 2.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    © 2026 EduFlow AI • Smart School Timetable Management System
+
+</footer>
+
+</main>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
